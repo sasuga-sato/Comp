@@ -1,23 +1,23 @@
 import styled from "styled-components";
+import { Card } from "../../atoms/card/Card";
+import { UserIconWithName } from "../../molecules/user/UserIconWithName";
 
 export const UserCard = (props) => {
   const { user } = props;
   return (
-    <div>
-      {/* URLのimagesをsourceに書き換える */}
-      <img height={160} width={160} src={user.image} alt="プロフィール" />
-      <p>名前</p>
+    <Card>
+      <UserIconWithName image={user.image} name={user.name} />
       <SDl>
         <dt>メール</dt>
-        <dd>xxxxx@aaa.com</dd>
+        <dd>{user.email}</dd>
         <dt>TEL</dt>
-        <dd>000-1105-88888</dd>
+        <dd>{user.phone}</dd>
         <dt>会社名</dt>
-        <dd>〇〇会社</dd>
+        <dd>{user.company.name}</dd>
         <dt>Web</dt>
-        <dd>http://xxxxxxx</dd>
+        <dd>{user.website}</dd>
       </SDl>
-    </div>
+    </Card>
   );
 };
 
@@ -30,5 +30,6 @@ const SDl = styled.dl`
   dd {
     padding-left: 32;
     padding-bottom: 8px;
+    overflow-wrap: break-word;
   }
 `;

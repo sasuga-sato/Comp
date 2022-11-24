@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Top } from "../compornents/atoms/pages/Top";
-import { Users } from "../compornents/atoms/pages/Users";
+import { Top } from "../compornents/pages/Top";
+import { Users } from "../compornents/pages/Users";
 import { DefaultLayout } from "../compornents/templates/DefaultLayout";
+import { HeaderOnly } from "../compornents/templates/HeaderOnly";
 
 export const Router = () => {
   return (
@@ -13,7 +14,9 @@ export const Router = () => {
           </DefaultLayout>
         </Route>
         <Route exact path="/users">
-          <Users />
+          <HeaderOnly>
+            <Users />
+          </HeaderOnly>
         </Route>
       </Switch>
     </BrowserRouter>
